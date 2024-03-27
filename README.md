@@ -61,8 +61,6 @@ Delete the nginx pod
 ## Task 5
 Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 replicas in the namespace `my-namespace` using YAML configurations
 
-refference: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
-
 1. Copy the YAML content below
 	```
 	<Paste output here>
@@ -95,7 +93,7 @@ refference: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
 	```
 	<Paste output here>
 
-	```
+	``
 
 7. Do a `kubectl delete -f <file-name>` and apply it again using `kubectl apply -f <file-name>`
 
@@ -105,7 +103,7 @@ refference: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
 
 	```
 
-9. Explain your observations from 6,7
+8. Explain your observations from steps 6,7
 
 	```
 	<Type observation here>
@@ -113,20 +111,17 @@ refference: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset
 	```
 
 
-10. Increase/dicrease the count of replicas by 1 in the YAML and apply it again 
+9. Increase/dicrease the count of replicas by 1 in the YAML and apply it again 
 
 	List the pods in the namespace `my-namespace` 
 	```
 	<Paste output here>
-
 	```
 
-11. Delete the `nginx-replicaset` using `kubectl delete replicaset/<replicaset-name> -n <namespace>`
+10. Delete the `nginx-replicaset` using `kubectl delete replicaset/<replicaset-name> -n <namespace>`
 
 ## Task 6
-Create a deployment named `nginx-deployment` for image `nginx:alpine` with 3 replicas in the namespace `my-namespace` using YAML configurations
-
-refference: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 replicas in the namespace `my-namespace` using YAML configurations
 
 1. Copy the YAML content below
 	```
@@ -169,13 +164,7 @@ refference: https://kubernetes.io/docs/concepts/workloads/controllers/deployment
 	<Paste output here>
 
 	```
-7. Increase/dicrease the count of replicas by 1 in the YAML and apply it again
-
-   	List the replicaset in the namespace `my-namespace` 
-	```
-	<Paste output here>
-
-	```
+7. Increase/dicrease the count of replicas by 1 in the YAML and apply it again 
 
 	List the pods in the namespace `my-namespace` 
 	```
@@ -188,10 +177,65 @@ refference: https://kubernetes.io/docs/concepts/workloads/controllers/deployment
 	Your observation and comparison between 
 	a replicaset and deployment
 
+	```
+9.  Delete the deployment  `nginx-deployment` using kubectl delete command
+
+## Bonus task
+
+Apply the given deployment.yaml file using `kubectl apply -f`
 
 	```
+	apiVersion: apps/v1
+	kind: Deployment
+	metadata:
+	  name: nginx-deployment
+	  namespace: my-namespace
+	spec:
+	  replicas: 1
+	  selector:
+	    matchLabels:
+	      app: nginx
+	  template:
+	    metadata:
+	      labels:
+	        app: nginx
+	    spec:
+	      containers:
+	      - name: nginx
+	        image: nginx:latest
+	        ports:
+	        - containerPort: 80
+	        readinessProbe:
+	          httpGet:
+	            path: /
+	            port: 82
+	        livenessProbe:
+	          httpGet:
+	            path: /
+	            port: 82
+	```
 
+1. List the pods for deployment
+	```
+	<Paste output here>
 
+	```
+2. Findout why the pods are not ready
+	```
+	<Explaing the steps you have done to do the debugging>
+	
+	```
+3. Fix the issue and explain your understanding on  `readinessProbe` `livenessProbe`
+	
+	```
+	<Updated deployment yaml>
+
+	```
+	Understanding on readness and liveness probe
+	```
+	<Type your understanding here>
+
+	```
 
 ## Cleanup task
 Delete the namespace `my-namespace` 
