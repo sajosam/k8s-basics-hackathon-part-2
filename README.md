@@ -121,7 +121,7 @@ Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 rep
 10. Delete the `nginx-replicaset` using `kubectl delete replicaset/<replicaset-name> -n <namespace>`
 
 ## Task 6
-Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 replicas in the namespace `my-namespace` using YAML configurations
+Create a deployment named `nginx-deployment` for image `nginx:1.42.6` with 3 replicas in the namespace `my-namespace` using YAML configurations
 
 1. Copy the YAML content below
 	```
