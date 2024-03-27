@@ -184,36 +184,36 @@ Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 rep
 
 Apply the given deployment.yaml file using `kubectl apply -f`
 
-	```
-	apiVersion: apps/v1
-	kind: Deployment
-	metadata:
-	  name: nginx-deployment
-	  namespace: my-namespace
-	spec:
-	  replicas: 1
-	  selector:
-	    matchLabels:
-	      app: nginx
-	  template:
-	    metadata:
-	      labels:
-	        app: nginx
-	    spec:
-	      containers:
-	      - name: nginx
-	        image: nginx:latest
-	        ports:
-	        - containerPort: 80
-	        readinessProbe:
-	          httpGet:
-	            path: /
-	            port: 82
-	        livenessProbe:
-	          httpGet:
-	            path: /
-	            port: 82
-	```
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: my-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+	app: nginx
+    spec:
+      containers:
+      - name: nginx
+	image: nginx:latest
+	ports:
+	- containerPort: 80
+	readinessProbe:
+	  httpGet:
+	    path: /
+	    port: 82
+	livenessProbe:
+	  httpGet:
+	    path: /
+	    port: 82
+```
 
 1. List the pods for deployment
 	```
