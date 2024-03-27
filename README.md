@@ -61,6 +61,8 @@ Delete the nginx pod
 ## Task 5
 Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 replicas in the namespace `my-namespace` using YAML configurations
 
+refference: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
 1. Copy the YAML content below
 	```
 	<Paste output here>
@@ -122,7 +124,9 @@ Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 rep
 11. Delete the `nginx-replicaset` using `kubectl delete replicaset/<replicaset-name> -n <namespace>`
 
 ## Task 6
-Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 replicas in the namespace `my-namespace` using YAML configurations
+Create a deployment named `nginx-deployment` for image `nginx:alpine` with 3 replicas in the namespace `my-namespace` using YAML configurations
+
+refference: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 1. Copy the YAML content below
 	```
@@ -165,7 +169,13 @@ Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 rep
 	<Paste output here>
 
 	```
-7. Increase/dicrease the count of replicas by 1 in the YAML and apply it again 
+7. Increase/dicrease the count of replicas by 1 in the YAML and apply it again
+
+   	List the replicaset in the namespace `my-namespace` 
+	```
+	<Paste output here>
+
+	```
 
 	List the pods in the namespace `my-namespace` 
 	```
@@ -177,6 +187,7 @@ Create a deployment named `nginx-deployment` for image `nginx:apline` with 3 rep
 	```
 	Your observation and comparison between 
 	a replicaset and deployment
+
 
 	```
 
