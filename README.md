@@ -95,16 +95,7 @@ Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 rep
 
 	```
 
-
-7. Fix the issue in the YAML configuration created  and re-apply configuration using `kubectl apply`
-
-	List the pods in the namespace `my-namespace` 
-	```
-	<Paste output here>
-
-	```
-
-8. Do a `kubectl delete -f <file-name>` and apply it again using `kubectl apply -f <file-name>`
+7. Do a `kubectl delete -f <file-name>` and apply it again using `kubectl apply -f <file-name>`
 
 	List the pods in the namespace `my-namespace` 
 	```
@@ -112,7 +103,7 @@ Create a replicaset named `nginx-replicaset` for image `nginx:1.42.6` with 3 rep
 
 	```
 
-9. Explain your observations from 6,7,8
+9. Explain your observations from 6,7
 
 	```
 	<Type observation here>
