@@ -16,7 +16,7 @@
 Create a namespace `my-namespace` in your cluster
 
 ## Task 2
-Create a Pod with name `nginx` with images `nginx:latest`, `nginx:1.14.2` in `my-namespace` using yaml configurations.
+Create a Pod with name `nginx` with images `nginx:latest`, `grafana/grafana-oss` in `my-namespace` using yaml configurations.
 
 Create a YAML for a Pod with multiple containers with container names `first`, `second` for the given images
 
